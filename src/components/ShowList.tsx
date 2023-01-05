@@ -10,7 +10,9 @@ type ShowListProps = {
 };
 
 const ShowList: FC<ShowListProps> = ({ show, fatchShow }) => {
-  useEffect(fatchShow, []);
+  useEffect(() => {
+    fatchShow();
+  }, []);
   return (
     <div>
       {show.map((m) => (
