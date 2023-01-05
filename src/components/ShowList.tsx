@@ -10,9 +10,7 @@ type ShowListProps = {
 };
 
 const ShowList: FC<ShowListProps> = ({ show, fatchShow }) => {
-  useEffect(() => {
-    fatchShow();
-  }, []);
+  useEffect(fatchShow, []);
   return (
     <div>
       {show.map((m) => (
@@ -28,7 +26,7 @@ const mapStateToProps = (s: State) => {
   show: showSelector(s);
 };
 
-const mapDispatchToprops = () => {
-  fatchShow: fatchShowAction;
+const mapDispatchToprops = {
+  fatchShow: fatchShowAction,
 };
 export default connect(mapStateToProps, mapDispatchToprops)(memo(ShowList));

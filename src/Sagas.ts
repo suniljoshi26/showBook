@@ -12,5 +12,6 @@ export function* fatchShowSaga(): Generator<any, any, any> {
 }
 
 export function* rootSaga() {
+  console.log("rootsaga");
   yield takeLeading(FATCH_SHOW, fatchShowSaga);
 }
