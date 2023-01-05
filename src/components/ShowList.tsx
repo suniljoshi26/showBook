@@ -10,7 +10,10 @@ type ShowListProps = {
 };
 
 const ShowList: FC<ShowListProps> = ({ show, fatchShow }) => {
-  useEffect(fatchShow, []);
+  useEffect(() => {
+    fatchShow();
+  }, []);
+  console.log("show", show);
   return (
     <div>
       {show.map((m) => (
@@ -22,9 +25,9 @@ const ShowList: FC<ShowListProps> = ({ show, fatchShow }) => {
 
 ShowList.defaultProps = {};
 
-const mapStateToProps = (s: State) => {
-  show: showSelector(s);
-};
+const mapStateToProps = (s: State) => ({
+  show: showSelector(s),
+});
 
 const mapDispatchToprops = {
   fatchShow: fatchShowAction,
